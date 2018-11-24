@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" href="../static/css/bootstrap3.3.7/css/bootstrap.css">
+
+    <style>
+      .red
+      {
+        color: white;
+        background-color: red;
+      }
+
+      .green
+      {
+        color: white;
+        background-color: green;
+      }
+
+      .blue
+      {
+        color: white;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+        <br>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="tabpanel">
+        	<ul class="nav nav-tabs">
+        		<li class="nav-item active">
+        			<a href="#buscar" class="nav-link active" role="tab" data-toggle="tab">Buscar Expediente</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#general" class="nav-link" role="tab" data-toggle="tab">Datos Generales</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#historialClinico" class="nav-link" role="tab" data-toggle="tab">Historial Clinico</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#examenes" class="nav-link" data-toggle="tab">Examenes</a>
+        		</li>
+        	</ul>
+
+        	<div class="tab-content">
+        		<div role="tabpanel" class="tab-pane active" id="buscar">
+                    <br>
+                    <form action="" class="">
+                        <div class="form-group">    
+                            <label for="codigo">Codigo:</label>
+                            <input class="form-control inputsize" id="codigo" type="text" placeholder="Codigo Expediente">
+                        </div>
+
+                        <div class="row container-fluid">
+                            <br>
+                            <button class="btn1 sm cta">Buscar</button>
+                        </div>
+                    </form>      
+                </div>
+        		<div role="tabpanel" class="tab-pane fade" id="general">2</div>
+        		<div role="tabpanel" class="tab-pane fade" id="historialClinico">3</div>
+                <div role="tabpanel" class="tab-pane fade" id="examenes">3</div>
+        	</div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="../static/css/bootstrap3.3.7/js/jquery.min.js"></script>
+    <script src="../static/css/bootstrap3.3.7/js/bootstrap.js"></script>
+  </body>
+</html>

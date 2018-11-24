@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/estilos.css">
+    <link rel="stylesheet" href="../static/css/bootstrap3.3.7/css/bootstrap.css">
+
+    <style>
+      .boton{
+      width: 100px;
+    }
+
+    .pad{
+      margin-right: 15px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <br>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="tabpanel">
+        	<ul class="nav nav-tabs">
+        		<li class="nav-item active">
+        			<a href="#buscar" class="nav-link active" role="tab" data-toggle="tab">Buscar Expediente</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#clinica" class="nav-link" role="tab" data-toggle="tab">Crear Historia Clinica</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#historialClinico" class="nav-link" role="tab" data-toggle="tab">Consultar Historial Clinico</a>
+        		</li>
+
+        		<li class="nav-item">
+        			<a href="#medicamentos" class="nav-link" data-toggle="tab">Crear Orden de Medicamentos</a>
+        		</li>
+
+            <li class="nav-item">
+              <a href="#crearExamenes" class="nav-link" role="tab" data-toggle="tab">Crear Orden de Examenes</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#agregarTratamiento" class="nav-link" role="tab" data-toggle="tab">Agregar Tratamiento</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#crearPerfilDieta" class="nav-link" role="tab" data-toggle="tab">Crear Perfil de Dieta</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#crearIncapacidad" class="nav-link" role="tab" data-toggle="tab">Crear Incapacidad</a>
+            </li>
+        	</ul>
+
+        	<div class="tab-content">
+        		<div role="tabpanel" class="tab-pane active" id="buscar">
+                    <br>
+                    <form action="" class="">
+                        <div class="form-group">    
+                            <label for="codigo">Codigo:</label>
+                            <input class="form-control inputsize" id="codigo" type="text" placeholder="Codigo Expediente">
+                        </div>
+
+                        <div class="row container-fluid">
+                            <br>
+                            <button class="btn1 sm cta">Buscar</button>
+                        </div>
+
+                        <br>
+              <table class="table table-bordered">
+                <tr class="active">
+                    <th>N° Expediente</th>
+                    <th>Nombre Paciente</th>
+                    <th>Fecha de Creacion</th>
+                    <th>Fecha Consulta</th>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+              </table>
+                    </form>      
+                </div>
+        		<div role="tabpanel" class="tab-pane fade" id="clinica">
+                <div class="container">
+                  <br>
+                  <div class="row">
+                    <div class="col-md-10">
+                      <form action="">
+                        <div class="form-group">  
+                          <label for="especialidad">Especialidad:</label>
+                          <input class="form-control" id=especialidad type="text" placeholder="Especialidad">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="motivo">Motivo:</label>
+                          <textarea class="form-control" id="motivo" placeholder="Motivo"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="historia">Historia:</label>
+                          <textarea class="form-control" id="historia" placeholder="Historia"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="antecedentesFamiliares">Antecedentes Familiares:</label>
+                          <textarea class="form-control" id="antecedentesFamiliares" placeholder="Familiares"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="antecedentesPersonales">Antecedentes Personales:</label>
+                          <textarea class="form-control" id="antecedentesPersonales" placeholder="Personales"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                          <label for="resumen">Resumen:</label>
+                          <textarea class="form-control" id="resumen" placeholder="Resumen"></textarea>
+                        </div>
+                      </form>
+                    </div>
+
+                      <br>
+                      <div class="row container-fluid" align="center">
+                        <button class="boton btn1 sm cta">Guardar</button>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        		<div role="tabpanel" class="tab-pane fade" id="historialClinico">3</div>
+            <div role="tabpanel" class="tab-pane fade" id="medicamentos">
+              
+              <div class="container">
+                <br>
+                <div class="row">
+                  <div class="col-md-8">
+                    <form action="">
+
+                        <div class="form-group">  
+                          <label for="nombreMed">Nombre Del Medicamento:</label>
+                          <input class="form-control" id=nombreMed type="text" placeholder="Nombre del medicamento">
+                        </div>
+
+                        <div class="form-group">  
+                          <label for="cantidadMed">Cantidad:</label>
+                          <input class="form-control" id=cantidadMed type="number" placeholder="Cantidad">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="indicaciones">Indicaciones:</label>
+                          <textarea class="form-control" id="indicaciones" placeholder="Indicaciones"></textarea>
+                        </div>
+
+                    </form>
+                  </div>
+
+                  <div class="col-md-4">
+                    
+                    <form action="">
+                      
+                      <div class="form-group">  
+                        <label for="codigoMed">Codigo del Medicamento:</label>
+                        <input class="form-control" id=codigoMed type="text" placeholder="Codigo del Medicamento">
+                      </div>
+
+                      <div class="row container-fluid" align="center">
+                        <br>
+                        <br>
+                        <button class="boton btn1 sm cta pad">Agregar</button>
+                        <button class="boton btn1 sm cta">Consultar</button>
+                      </div>
+
+                      <div class="row container-fluid" align="center">
+                        <br>
+                        <br>
+                        
+                      </div>
+
+                    </form>
+                    <br>
+                    <br>
+
+                  </div>
+
+                      <table class="table table-bordered">
+                      <tr class="active">
+                        <th>Codigo del Medicamento</th>
+                        <th>Nombre del Medicamento</th>
+                        <th>Cantidad en Existencia</th>
+                      </tr>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="crearExamenes">
+                  
+                  
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="agregarTratamiento">
+                
+                  <div class="container-fluid">
+                    
+                    <br>
+                    <form action="">
+                      <div class="form-group">
+                        <label for="nombrePaciente">Nombre del Paciente:</label>
+                        <input class="form-control" id="nombrePaciente" placeholder="Nombre del Paciente"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="doctorEncargado">Doctor Encargado:</label>
+                        <input class="form-control" id="doctorEncargado" placeholder="Doctor Encargado"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="descripcion">Descripcion:</label>
+                        <textarea class="form-control" id="descripcion" placeholder="Descripcion"></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="fechaInicio">Fecha de inicio:</label>
+                        <input class="form-control" id="fechaInicio" type="date"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="fechaFin">Fecha de fin:</label>
+                        <input class="form-control" id="fechaFin" type="date"></input>
+                      </div>
+                    </form>
+
+                    <div class="row container-fluid" align="center">
+                      <br>
+                      <br>
+                      <button class="boton btn1 sm cta">Guardar</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="crearPerfilDieta">
+                  
+                  <div class="container-fluid">
+                    
+                    <br>
+                    <form action="">
+                      
+                      <div class="form-group">
+                        <label for="codigo">Codigo de Consulta:</label>
+                        <input class="form-control" id="codigo" placeholder="Codigo de Consulta"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="nombreDieta">Nombre del Tratamiento:</label>
+                        <input class="form-control" id="nombreDieta" placeholder="Nombre del Tratamiento"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="fechaInicio">Fecha de inicio:</label>
+                        <input class="form-control" id="fechaInicio" type="date"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="tratamiento">Tratamiento:</label>
+                        <textarea class="form-control" id="tratamiento" placeholder="Tratamiento"></textarea>
+                      </div>
+
+                    </form>
+
+                    <div class="row container-fluid" align="center">
+                      <br>
+                      <br>
+                      <button class="boton btn1 sm cta">Guardar</button>
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane fade" id="crearIncapacidad">
+                  
+                  <div class="container-fluid">
+                    
+                    <br>
+                    <form action="">
+                      
+                      <div class="form-group">
+                        <label for="codigoConsulta">Codigo de Consulta:</label>
+                        <input class="form-control" id="codigoConsulta" type="text" placeholder="Codigo de Consulta"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="motivoIncapacidad">Motivo:</label>
+                        <textarea class="form-control" id="motivoIncapacidad" placeholder="Motivo"></textarea>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="duracionIncapacidad">Duracion de la Incapacidad:</label>
+                        <input class="form-control" id="duracionIncapacidad" type="number" placeholder="Duracion"></input>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="unidadTiempo">Unidad de Tiempo:</label>
+                        <input class="form-control" id="unidadTiempo" placeholder="Unidad de Tiempo"></input>
+                      </div>
+
+                    </form>
+
+                  </div>
+
+                </div>
+
+        	</div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="../static/css/bootstrap3.3.7/js/jquery.min.js"></script>
+    <script src="../static/css/bootstrap3.3.7/js/bootstrap.js"></script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+.row {
+	width: 100%;
+	position: relative;
+	display: inline-block;
+}
+
+.btn1 {
+	display: inline-block;
+	border-radius: 2px;
+	border: none;
+	height: 45px;
+	padding: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.sm {
+	width: 13%;
+}
+
+.cta {
+  background-color: #325A99;
+  color: white;
+  transition: 0.3s ease;
+}
+.cta:hover {
+  background-color: #2C528C;
+  transition: 0.3s ease;
+}
+
+.coloretab{
+	background-color: #325A99; 
+}
+
+.inputsize{
+	width: 250px;
+}

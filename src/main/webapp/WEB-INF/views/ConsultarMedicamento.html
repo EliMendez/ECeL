@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>ECeL - Consultar Medicamento</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="../static/css/bootstrap3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/estilos.css">
+	<script src="../static/css/bootstrap3.3.7/js/jquery-latest.js"></script>
+	<script src="../static/css/bootstrap3.3.7/js/bootstrap.min.js"></script>
+
+	<style>
+		.boton{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<br>
+		<form action="">
+			
+			<div class="row">
+				<div class="col-md-8">
+					<div class="form-group">	
+						<label for="codigo">codigo:</label>
+						<input class="form-control" id=codigo type="text" placeholder="Codigo Medicamento">
+					</div>
+
+					<div class="form-group">
+						<label for="nombre_Med">Nombre:</label>
+						<input class="form-control" id="nombre_Med" type="text" placeholder="Nombre Medicamento">
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="col-md-4" align="center">
+					<div class="row container-fluid">
+    					<button class="boton btn1 sm cta">Buscar</button>
+  					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<br>
+				<div class="col-md-10">
+	            	<table class="table table-bordered">
+		                <tr class="active">
+		                    <th>Codigo del Medicamento</th>
+		                    <th>Nombre Medicamento</th>
+		                    <th>Cantidad de Existencia</th>
+		                </tr>
+		                <tr>
+		                    <td></td>
+		                    <td></td>
+		                    <td></td>
+		                </tr>
+	            	</table>
+				</div>
+				<div class="col-md-2" align="center">
+					
+					<div class="row container-fluid">
+    					<button class="boton btn1 sm cta">Seleccionar</button>
+  					</div>
+
+				</div>
+			</div>
+
+		</form>
+
+	</div>
+
+</body>
+</html>
