@@ -173,7 +173,13 @@ public class Medicamento implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoMedicamento().toString();
+		return "Medicamento [getCodigoMedicamento()=" + getCodigoMedicamento() + ", getNumeroLote()=" + getNumeroLote()
+				+ ", getClasificacion()=" + getClasificacion() + ", getDetalleOrdenMedicamentos()="
+				+ getDetalleOrdenMedicamentos() + ", getCondicionAlmacenamiento()=" + getCondicionAlmacenamiento()
+				+ ", getViaAdministracion()=" + getViaAdministracion() + ", getContraIndicaciones()="
+				+ getContraIndicaciones() + ", getDescripcionMedicamento()=" + getDescripcionMedicamento()
+				+ ", getUnidadMedida()=" + getUnidadMedida() + ", isAgitable()=" + isAgitable()
+				+ ", isAlejadoMenores()=" + isAlejadoMenores() + "]";
 	}
 	
 }

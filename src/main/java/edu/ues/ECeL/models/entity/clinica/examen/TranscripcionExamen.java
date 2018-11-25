@@ -78,8 +78,10 @@ public class TranscripcionExamen implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoTranscripcion().toString();
+		return "TranscripcionExamen [getCodigoTranscripcion()=" + getCodigoTranscripcion()
+				+ ", getContestacionExamen()=" + getContestacionExamen() + ", getResultadoTranscripcion()="
+				+ getResultadoTranscripcion() + ", isAprovada()=" + isAprovada() + "]";
 	}
-
+	
 }
 

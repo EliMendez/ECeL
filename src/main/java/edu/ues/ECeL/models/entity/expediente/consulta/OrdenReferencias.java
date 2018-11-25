@@ -55,6 +55,7 @@ public class OrdenReferencias implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoReferencia().toString();
+		return "OrdenReferencias [getCodigoReferencia()=" + getCodigoReferencia() + ", getConsulta()=" + getConsulta()
+				+ ", getDetalleOrdenReferencia()=" + getDetalleOrdenReferencia() + "]";
 	}
 }

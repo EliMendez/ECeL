@@ -98,6 +98,8 @@ public class Diagnostico implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoDiagnostico().toString();
+		return "Diagnostico [getCodigoDiagnostico()=" + getCodigoDiagnostico() + ", getConsulta()=" + getConsulta()
+				+ ", getEnfermedades()=" + getEnfermedades() + ", getDetalleTratamientos()=" + getDetalleTratamientos()
+				+ ", getDescripcionDiagnostico()=" + getDescripcionDiagnostico() + "]";
 	}
 }

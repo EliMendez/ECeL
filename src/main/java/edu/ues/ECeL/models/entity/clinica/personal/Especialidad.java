@@ -104,7 +104,10 @@ public class Especialidad implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getCodigoEspecialidad().toString();
+		return "Especialidad [getCodigoEspecialidad()=" + getCodigoEspecialidad() + ", getEmpleados()=" + getEmpleados()
+				+ ", getClinicas()=" + getClinicas() + ", getDetalleOrdenReferencia()=" + getDetalleOrdenReferencia()
+				+ ", getNombreEspecialidad()=" + getNombreEspecialidad() + ", getDescripcionEspecialidad()="
+				+ getDescripcionEspecialidad() + "]";
 	} 
 
 }

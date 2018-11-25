@@ -79,8 +79,8 @@ public class DetalleChequeoFisico implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "DetalleChequeFisico [resultadoChequeo=" + resultadoChequeo
-				+ "]";
+		return "DetalleChequeoFisico [getCodigoChequeo()=" + getCodigoChequeo() + ", getConsulta()=" + getConsulta()
+				+ ", getExamen()=" + getExamen() + ", getResultadoChequeo()=" + getResultadoChequeo() + "]";
 	}
 	
 }

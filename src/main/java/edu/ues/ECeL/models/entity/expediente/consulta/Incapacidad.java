@@ -94,6 +94,8 @@ public class Incapacidad implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoIncapacidad().toString();
+		return "Incapacidad [getCodigoIncapacidad()=" + getCodigoIncapacidad() + ", getMotivoIncapacidad()="
+				+ getMotivoIncapacidad() + ", getDuracionIncapacidad()=" + getDuracionIncapacidad()
+				+ ", getUnidadTiempo()=" + getUnidadTiempo() + ", getConsulta()=" + getConsulta() + "]";
 	}
 }

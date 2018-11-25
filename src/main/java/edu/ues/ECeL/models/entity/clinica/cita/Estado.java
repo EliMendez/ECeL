@@ -77,6 +77,10 @@ public class Estado implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoEstado().toString();
+		return "Estado [getCodigoEstado()=" + getCodigoEstado() + ", getCitas()=" + getCitas() + ", getNombreEstado()="
+				+ getNombreEstado() + ", getDescripcionEstado()=" + getDescripcionEstado() + "]";
 	}
+	
+	
+	
 }

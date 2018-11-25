@@ -1,6 +1,7 @@
 package edu.ues.ECeL.models.entity.clinica.examen;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -102,7 +103,10 @@ public class ContestacionExamen implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoContestacion().toString();
+		return "ContestacionExamen [getCodigoContestacion()=" + getCodigoContestacion() + ", getExpediente()="
+				+ getExpediente() + ", getTranscripcionExamen()=" + getTranscripcionExamen()
+				+ ", getDetalleOrdenExamenes()=" + getDetalleOrdenExamenes() + ", getLectura()="
+				+ Arrays.toString(getLectura()) + ", getFechaContestacion()=" + getFechaContestacion() + "]";
 	}
 
 }

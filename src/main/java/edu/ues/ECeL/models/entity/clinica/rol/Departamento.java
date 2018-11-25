@@ -87,10 +87,12 @@ public class Departamento implements Serializable {
 	public void setClinicas(List<Clinica> clinicas) {
 		this.clinicas = clinicas;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return getNombreDepartamento();
+		return "Departamento [getCodigoDepartamento()=" + getCodigoDepartamento() + ", getNombreDepartamento()="
+				+ getNombreDepartamento() + ", getMunicipios()=" + getMunicipios() + ", getPersonas()=" + getPersonas()
+				+ ", getClinicas()=" + getClinicas() + "]";
 	}
+	
 }

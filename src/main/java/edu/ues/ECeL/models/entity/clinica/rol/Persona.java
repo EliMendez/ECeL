@@ -274,9 +274,17 @@ public class Persona implements Serializable {
 	public void setGrupos(List<Grupo> grupos) {
 		this.grupos = grupos;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getDui();
+		return "Persona [getDui()=" + getDui() + ", getNombrePersona()=" + getNombrePersona() + ", getPermisos()="
+				+ getPermisos() + ", getAdminLog()=" + getAdminLog() + ", getApellidoPersona()=" + getApellidoPersona()
+				+ ", getFechaNacimiento()=" + getFechaNacimiento() + ", getTelefono()=" + getTelefono()
+				+ ", getDireccion()=" + getDireccion() + ", getGenero()=" + getGenero() + ", getCorreo()=" + getCorreo()
+				+ ", getPassword()=" + getPassword() + ", isActive()=" + isActive() + ", getDepartamento()="
+				+ getDepartamento() + ", getEmpleado()=" + getEmpleado() + ", getExpediente()=" + getExpediente()
+				+ ", getEmail()=" + getEmail() + ", getDateJoined()=" + getDateJoined() + ", getGrupos()=" + getGrupos()
+				+ "]";
 	}
+	
 }

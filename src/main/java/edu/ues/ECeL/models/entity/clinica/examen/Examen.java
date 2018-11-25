@@ -106,6 +106,9 @@ public class Examen implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoExamen().toString();
+		return "Examen [getCodigoExamen()=" + getCodigoExamen() + ", getDescripcionExamen()=" + getDescripcionExamen()
+				+ ", getNombreExamen()=" + getNombreExamen() + ", getClasificacion()=" + getClasificacion()
+				+ ", getDetalleOrdenExamenes()=" + getDetalleOrdenExamenes() + ", getDetalleChequeFisico()="
+				+ getDetalleChequeFisico() + "]";
 	}
 }

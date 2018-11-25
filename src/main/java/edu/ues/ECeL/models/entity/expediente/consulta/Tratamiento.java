@@ -89,10 +89,14 @@ public class Tratamiento implements Serializable {
 	public void setDescripcionTratamiento(String descripcionTratamiento) {
 		this.descripcionTratamiento = descripcionTratamiento;
 	}
-	
-	@Override 
+
+	@Override
 	public String toString() {
-		return getCodigoTratamiento().toString();
+		return "Tratamiento [getCodigoTratamiento()=" + getCodigoTratamiento() + ", getPerfilDieta()="
+				+ getPerfilDieta() + ", getDetalleTratamiento()=" + getDetalleTratamiento()
+				+ ", getNombreTratamiento()=" + getNombreTratamiento() + ", getDescripcionTratamiento()="
+				+ getDescripcionTratamiento() + "]";
 	}
+	
 	
 }

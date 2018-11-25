@@ -95,10 +95,11 @@ public class TipoContenido implements Serializable {
 		this.model = model;
 	}
 
-
 	@Override
 	public String toString() {
-		return getCodigoContenido().toString();
+		return "TipoContenido [getCodigoContenido()=" + getCodigoContenido() + ", getPermisos()=" + getPermisos()
+				+ ", getAdminLogs()=" + getAdminLogs() + ", getAppLabel()=" + getAppLabel() + ", getModel()="
+				+ getModel() + "]";
 	}	
 	
 }

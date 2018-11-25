@@ -67,7 +67,8 @@ public class Grupo implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getCodigoGrupo().toString();
+		return "Grupo [getCodigoGrupo()=" + getCodigoGrupo() + ", getNombreGrupo()=" + getNombreGrupo()
+				+ ", getPersonas()=" + getPersonas() + "]";
 	}
 	
 }

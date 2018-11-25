@@ -90,7 +90,9 @@ public class PerfilDieta implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoDieta().toString();
+		return "PerfilDieta [getCodigoDieta()=" + getCodigoDieta() + ", getDescripcionDieta()=" + getDescripcionDieta()
+				+ ", getFechaInicio()=" + getFechaInicio() + ", getConsulta()=" + getConsulta() + ", getTratamiento()="
+				+ getTratamiento() + "]";
 	}
 	
 }

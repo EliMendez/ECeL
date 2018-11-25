@@ -101,9 +101,13 @@ public class OrdenMedicamentos implements Serializable{
 	public void setDespachada(boolean isDespachada) {
 		this.isDespachada = isDespachada;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getCodigoOrdenMedicamentos().toString();
+		return "OrdenMedicamentos [getCodigoOrdenMedicamentos()=" + getCodigoOrdenMedicamentos() + ", getConsulta()="
+				+ getConsulta() + ", getDetalleOrdenMedicamentos()=" + getDetalleOrdenMedicamentos()
+				+ ", getFechaCaducidad()=" + getFechaCaducidad() + ", getFechaEntrega()=" + getFechaEntrega()
+				+ ", isDespachada()=" + isDespachada() + "]";
 	}
+	
 }

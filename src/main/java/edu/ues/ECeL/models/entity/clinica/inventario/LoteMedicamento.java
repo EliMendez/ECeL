@@ -149,7 +149,11 @@ public class LoteMedicamento implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getNumeroLote().toString();
+		return "LoteMedicamento [getNumeroLote()=" + getNumeroLote() + ", getFabricante()=" + getFabricante()
+				+ ", getMedicamentos()=" + getMedicamentos() + ", getNombreComercial()=" + getNombreComercial()
+				+ ", getNombreGenerico()=" + getNombreGenerico() + ", getFechaFabricacion()=" + getFechaFabricacion()
+				+ ", getFehcaExpiracion()=" + getFehcaExpiracion() + ", getNumeroRegistroSanitario()="
+				+ getNumeroRegistroSanitario() + ", getFormulacion()=" + getFormulacion() + "]";
 	}
 
 }

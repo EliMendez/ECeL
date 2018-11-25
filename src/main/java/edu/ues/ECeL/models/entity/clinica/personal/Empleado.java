@@ -150,6 +150,9 @@ public class Empleado implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoEmpleado().toString();
+		return "Empleado [getCodigoEmpleado()=" + getCodigoEmpleado() + ", getEspecialidades()=" + getEspecialidades()
+				+ ", getCargo()=" + getCargo() + ", getUnidad()=" + getUnidad() + ", getClinica()=" + getClinica()
+				+ ", getJefe()=" + getJefe() + ", getPersona()=" + getPersona() + ", getAgenda()=" + getAgenda()
+				+ ", getEmpleados()=" + getEmpleados() + "]";
 	}
 }

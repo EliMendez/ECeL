@@ -108,6 +108,9 @@ public class DetalleOrdenMedicamentos implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoDetalleOrdenMedicamento().toString();
+		return "DetalleOrdenMedicamentos [getCodigoDetalleOrdenMedicamento()=" + getCodigoDetalleOrdenMedicamento()
+				+ ", getCantidad()=" + getCantidad() + ", getIndicacion()=" + getIndicacion() + ", getFrecuencia()="
+				+ getFrecuencia() + ", getMedicamento()=" + getMedicamento() + ", getOrdenMedicamento()="
+				+ getOrdenMedicamento() + "]";
 	}
 }

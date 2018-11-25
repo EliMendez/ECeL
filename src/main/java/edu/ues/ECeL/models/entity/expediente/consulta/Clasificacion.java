@@ -137,7 +137,11 @@ public class Clasificacion implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoClasificacion().toString();
+		return "Clasificacion [getCodigoClasificacion()=" + getCodigoClasificacion() + ", getMedicamentos()="
+				+ getMedicamentos() + ", getExamenes()=" + getExamenes() + ", getEnfermedades()=" + getEnfermedades()
+				+ ", getSubClasificaciones()=" + getSubClasificaciones() + ", getNombreClasificacion()="
+				+ getNombreClasificacion() + ", getDescripcionClasificacion()=" + getDescripcionClasificacion()
+				+ ", getClasificacion()=" + getClasificacion() + "]";
 	}
 
 }

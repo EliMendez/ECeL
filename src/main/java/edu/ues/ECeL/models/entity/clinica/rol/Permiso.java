@@ -112,6 +112,8 @@ public class Permiso implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoPermiso().toString();
+		return "Permiso [getCodigoPermiso()=" + getCodigoPermiso() + ", getNombrePermiso()=" + getNombrePermiso()
+				+ ", getCodeName()=" + getCodeName() + ", getTipoContenido()=" + getTipoContenido() + ", getPersonas()="
+				+ getPersonas() + ", getGrupos()=" + getGrupos() + "]";
 	}
 }

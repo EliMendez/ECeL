@@ -88,10 +88,11 @@ public class Agenda implements Serializable{
 	public void setHoraFin(Date horaFin) {
 		this.horaFin = horaFin;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getCodigoAgenda().toString();
+		return "Agenda [getCodigoAgenda()=" + getCodigoAgenda() + ", getEmpleado()=" + getEmpleado() + ", getCitas()="
+				+ getCitas() + ", getHoraInicio()=" + getHoraInicio() + ", getHoraFin()=" + getHoraFin() + "]";
 	}
 	
 }

@@ -119,7 +119,10 @@ public class AdminLog implements Serializable {
 
 	@Override
 	public String toString() {
-		return getCodigoAdminLog().toString();
+		return "AdminLog [getCodigoAdminLog()=" + getCodigoAdminLog() + ", getActionTime()=" + getActionTime()
+				+ ", getCodigoObjeto()=" + getCodigoObjeto() + ", getReprObjeto()=" + getReprObjeto()
+				+ ", getActionFlag()=" + getActionFlag() + ", getTipoContenido()=" + getTipoContenido()
+				+ ", getPersona()=" + getPersona() + "]";
 	}
 	
 }

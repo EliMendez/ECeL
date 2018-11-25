@@ -144,6 +144,10 @@ public class SignosVitales implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoSignosVitales().toString();
+		return "SignosVitales [getCodigoSignosVitales()=" + getCodigoSignosVitales() + ", getConsulta()="
+				+ getConsulta() + ", getPresionArterialDiastolica()=" + getPresionArterialDiastolica()
+				+ ", getTemperatura()=" + getTemperatura() + ", getMasaCorporal()=" + getMasaCorporal()
+				+ ", getEstatura()=" + getEstatura() + ", getRitmoCardiaco()=" + getRitmoCardiaco()
+				+ ", getPresionArterialSistolica()=" + getPresionArterialSistolica() + "]";
 	}
 }

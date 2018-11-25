@@ -62,10 +62,11 @@ public class Municipio implements Serializable {
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
-	
+
 	@Override
 	public String toString() {
-		return getNombreMunicipio();
+		return "Municipio [getCodigoMunicipio()=" + getCodigoMunicipio() + ", getNombreMunicipio()="
+				+ getNombreMunicipio() + ", getDepartamento()=" + getDepartamento() + "]";
 	}
-
+	
 }

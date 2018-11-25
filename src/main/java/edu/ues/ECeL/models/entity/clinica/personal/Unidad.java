@@ -92,6 +92,8 @@ public class Unidad implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Unidad [nombreUnidad=" + nombreUnidad + "]";
+		return "Unidad [getClinica()=" + getClinica() + ", getCodigoUnidad()=" + getCodigoUnidad()
+				+ ", getNombreUnidad()=" + getNombreUnidad() + ", getDescripcionUnidad()=" + getDescripcionUnidad()
+				+ ", getEmpleados()=" + getEmpleados() + "]";
 	}
 }

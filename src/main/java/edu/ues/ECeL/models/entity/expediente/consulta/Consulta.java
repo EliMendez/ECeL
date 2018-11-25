@@ -205,7 +205,14 @@ public class Consulta implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoConsulta().toString();
+		return "Consulta [getCodigoConsulta()=" + getCodigoConsulta() + ", getOrdenExamenes()=" + getOrdenExamenes()
+				+ ", getSignosVitales()=" + getSignosVitales() + ", getOrdenMedicamentos()=" + getOrdenMedicamentos()
+				+ ", getPerfilDieta()=" + getPerfilDieta() + ", getExpediente()=" + getExpediente()
+				+ ", getDiagnostico()=" + getDiagnostico() + ", getOrdenReferencias()=" + getOrdenReferencias()
+				+ ", getIncapacidad()=" + getIncapacidad() + ", getDetalleChequeoFisico()=" + getDetalleChequeoFisico()
+				+ ", getResumenCaso()=" + getResumenCaso() + ", getFecha()=" + getFecha() + ", getConsultaAntecesora()="
+				+ getConsultaAntecesora() + ", getConsultaSucesora()=" + getConsultaSucesora() + ", getFechaConsulta()="
+				+ getFechaConsulta() + "]";
 	}
 	
 }

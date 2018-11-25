@@ -93,6 +93,8 @@ public class DetalleOrdenReferencia implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoDetalleReferencia().toString();
+		return "DetalleOrdenReferencia [getCodigoDetalleReferencia()=" + getCodigoDetalleReferencia()
+				+ ", getMotivoReferencia()=" + getMotivoReferencia() + ", getCita()=" + getCita()
+				+ ", getOrdenReferencias()=" + getOrdenReferencias() + ", getEspecialidad()=" + getEspecialidad() + "]";
 	}
 }

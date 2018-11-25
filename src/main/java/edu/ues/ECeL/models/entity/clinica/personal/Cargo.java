@@ -105,6 +105,8 @@ public class Cargo implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getCodigoCargo().toString();
+		return "Cargo [getCodigoCargo()=" + getCodigoCargo() + ", getClinicas()=" + getClinicas() + ", getEmpleados()="
+				+ getEmpleados() + ", getNombreCargo()=" + getNombreCargo() + ", getDescripcionCargo()="
+				+ getDescripcionCargo() + ", getSalario()=" + getSalario() + "]";
 	}
 }

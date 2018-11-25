@@ -94,6 +94,8 @@ public class NotaEnfermeria implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoNota().toString();
+		return "NotaEnfermeria [getCodigoNota()=" + getCodigoNota() + ", getTituloNota()=" + getTituloNota()
+				+ ", getNotaNota()=" + getNotaNota() + ", getFechaRedaccion()=" + getFechaRedaccion()
+				+ ", getExpediente()=" + getExpediente() + "]";
 	}
 }

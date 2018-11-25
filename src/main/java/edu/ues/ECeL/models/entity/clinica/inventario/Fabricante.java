@@ -77,6 +77,8 @@ public class Fabricante implements Serializable{
 	
 	@Override
 	public String toString() {
-		return getCodigoFabricante().toString();
+		return "Fabricante [getCodigoFabricante()=" + getCodigoFabricante() + ", getLotes()=" + getLotes()
+				+ ", getNombreFabricante()=" + getNombreFabricante() + ", getNombreTitular()=" + getNombreTitular()
+				+ "]";
 	}	
 }

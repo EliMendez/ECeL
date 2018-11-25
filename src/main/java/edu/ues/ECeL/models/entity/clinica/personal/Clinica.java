@@ -155,6 +155,10 @@ public class Clinica implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Clinica [nombreClinica=" + nombreClinica + "]";
+		return "Clinica [getCodigoClinica()=" + getCodigoClinica() + ", getCargos()=" + getCargos() + ", getUnidades()="
+				+ getUnidades() + ", getEspecialidades()=" + getEspecialidades() + ", getDepartamento()="
+				+ getDepartamento() + ", getEmpleados()=" + getEmpleados() + ", getCitas()=" + getCitas()
+				+ ", getNombreClinica()=" + getNombreClinica() + ", getDireccionClinica()=" + getDireccionClinica()
+				+ "]";
 	}
 }

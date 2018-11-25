@@ -120,6 +120,9 @@ public class HistoriaClinica implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoHistoria().toString();
+		return "HistoriaClinica [getCodigoHistoria()=" + getCodigoHistoria() + ", getMotivoHistoria()="
+				+ getMotivoHistoria() + ", getHistoria()=" + getHistoria() + ", getAntecedentesFamiliares()="
+				+ getAntecedentesFamiliares() + ", getAntecedentesPersonales()=" + getAntecedentesPersonales()
+				+ ", getResumen()=" + getResumen() + ", getExpediente()=" + getExpediente() + "]";
 	}
 }

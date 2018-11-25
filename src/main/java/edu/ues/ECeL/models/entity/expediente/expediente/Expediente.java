@@ -125,6 +125,9 @@ public class Expediente implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoExpediente().toString();
+		return "Expediente [getCodigoExpediente()=" + getCodigoExpediente() + ", getFechaCreacion()="
+				+ getFechaCreacion() + ", getPersona()=" + getPersona() + ", getNotaEnfermeria()=" + getNotaEnfermeria()
+				+ ", getConsultas()=" + getConsultas() + ", getCitas()=" + getCitas() + ", getHistoriaClinica()="
+				+ getHistoriaClinica() + ", getContestacionExamen()=" + getContestacionExamen() + "]";
 	};
 }

@@ -143,6 +143,11 @@ public class Cita implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoCita().toString();
+		return "Cita [getCodigoCita()=" + getCodigoCita() + ", getClinica()=" + getClinica() + ", getEstado()="
+				+ getEstado() + ", getDetalleOrdenExamenes()=" + getDetalleOrdenExamenes() + ", getExpediente()="
+				+ getExpediente() + ", getAgenda()=" + getAgenda() + ", getDetalleOrdenReferencia()="
+				+ getDetalleOrdenReferencia() + ", getFechaCita()=" + getFechaCita() + ", getHoraCita()="
+				+ getHoraCita() + "]";
 	}
+	
 }

@@ -101,6 +101,9 @@ public class DetalleOrdenExamenes implements Serializable {
 	
 	@Override
 	public String toString() {
-		return getCodigoDetalleExamen().toString();
+		return "DetalleOrdenExamenes [getCodigoDetalleExamen()=" + getCodigoDetalleExamen() + ", isRealizado()="
+				+ isRealizado() + ", getExamen()=" + getExamen() + ", getCita()=" + getCita()
+				+ ", getContestacionExamen()=" + getContestacionExamen() + ", getOrdenExamenes()=" + getOrdenExamenes()
+				+ "]";
 	}
 }

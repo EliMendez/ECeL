@@ -91,7 +91,9 @@ public class Enfermedad implements Serializable{
 
 	@Override
 	public String toString() {
-		return getCodigoEnfermedad().toString();
-				
+		return "Enfermedad [getCodigoEnfermedad()=" + getCodigoEnfermedad() + ", getClasificacion()="
+				+ getClasificacion() + ", getNombreEnfermedad()=" + getNombreEnfermedad()
+				+ ", getDescripcionEnfermedad()=" + getDescripcionEnfermedad() + ", getDiagnosticos()="
+				+ getDiagnosticos() + "]";
 	}
 }

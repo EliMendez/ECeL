@@ -89,8 +89,10 @@ public class DetalleTratamiento implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "DetalleTratamiento [ fechaInicioDetalleTratamiento=" + getFechaInicioDetalleTratamiento() + ", fechaFinDetalleTratamiento="
-				+ getFechaFinDetalleTratamiento() + "]";
+		return "DetalleTratamiento [getCodigoDetalleTratamiento()=" + getCodigoDetalleTratamiento()
+				+ ", getTratamiento()=" + getTratamiento() + ", getDiagnostico()=" + getDiagnostico()
+				+ ", getFechaInicioDetalleTratamiento()=" + getFechaInicioDetalleTratamiento()
+				+ ", getFechaFinDetalleTratamiento()=" + getFechaFinDetalleTratamiento() + "]";
 	}
 
 }
