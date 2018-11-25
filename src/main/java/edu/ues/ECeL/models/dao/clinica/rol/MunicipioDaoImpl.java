@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.rol;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.rol.Municipio;
 
 @Repository
-public class MunicipioDaoImpl implements MunicipioDao{
+public class MunicipioDaoImpl extends GenericHibernateDaoImpl<Municipio, Integer> implements MunicipioDao{
+	
+private static final Logger logger = Logger.getLogger(MunicipioDaoImpl.class);
+	
+	@Autowired
+	public MunicipioDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en MunicipioDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @PersistenceContext
-    private EntityManager em;
+	@Override
+	public List<Municipio> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Municipio.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Municipio municipio) {
-        em.persist(municipio);
-    }
-
-    @Override
-    @Transactional
-    public void update(Municipio municipio) {
-        em.merge(municipio);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoMunicipio) {
-    	Municipio municipio = em.find(Municipio.class, codigoMunicipio);
-        if (municipio != null) {
-            em.remove(municipio);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Municipio read(Integer codigoMunicipio) {
-        return em.find(Municipio.class, codigoMunicipio);
-    }
+	@Override
+	public Municipio findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Municipio)getHibernateTemplate().get(Municipio.class, id);
+	}
 
 }

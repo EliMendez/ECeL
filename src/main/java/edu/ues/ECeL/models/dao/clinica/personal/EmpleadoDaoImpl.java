@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.personal;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.personal.Empleado;
 
 @Repository
-public class EmpleadoDaoImpl implements EmpleadoDao{
+public class EmpleadoDaoImpl extends GenericHibernateDaoImpl<Empleado, Integer> implements EmpleadoDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(EmpleadoDaoImpl.class);
+	
+	@Autowired
+	public EmpleadoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en EmpleadoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Empleado empleado) {
-        em.persist(empleado);
-    }
+	@Override
+	public List<Empleado> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Empleado.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Empleado empleado) {
-        em.merge(empleado);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoEmpleado) {
-    	Empleado empleado = em.find(Empleado.class, codigoEmpleado);
-        if (empleado != null) {
-            em.remove(empleado);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Empleado read(Integer codigoEmpleado) {
-        return em.find(Empleado.class, codigoEmpleado);
-    }
+	@Override
+	public Empleado findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Empleado)getHibernateTemplate().get(Empleado.class, id);
+	}
 
 }

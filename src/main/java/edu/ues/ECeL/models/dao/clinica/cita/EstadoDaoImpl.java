@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.cita;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
+import edu.ues.ECeL.models.entity.clinica.cita.Cita;
 import edu.ues.ECeL.models.entity.clinica.cita.Estado;
 
 @Repository
-public class EstadoDaoImpl implements EstadoDao{
+public class EstadoDaoImpl extends GenericHibernateDaoImpl<Estado, Integer> implements EstadoDao{
 
-    @PersistenceContext
-    private EntityManager em;
+	private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
+	
+	@Autowired
+	public EstadoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFactory en EstadoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	@Override
+	public List<Estado> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Estado.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Estado estado) {
-        em.persist(estado);
-    }
-
-    @Override
-    @Transactional
-    public void update(Estado estado) {
-        em.merge(estado);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoEstado) {
-    	Estado estado = em.find(Estado.class, codigoEstado);
-        if (estado != null) {
-            em.remove(estado);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Estado read(Integer codigoEstado) {
-        return em.find(Estado.class, codigoEstado);
-    }
+	@Override
+	public Estado findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parámetro "+id.toString());
+		return (Estado)getHibernateTemplate().get(Estado.class, id);
+	}
 
 }

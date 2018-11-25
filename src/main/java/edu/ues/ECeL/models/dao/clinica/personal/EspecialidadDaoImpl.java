@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.personal;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.personal.Especialidad;
 
 @Repository
-public class EspecialidadDaoImpl implements EspecialidadDao{
+public class EspecialidadDaoImpl extends GenericHibernateDaoImpl<Especialidad, Integer> implements EspecialidadDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(EspecialidadDaoImpl.class);
+	
+	@Autowired
+	public EspecialidadDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en EspecialidadDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Especialidad especialidad) {
-        em.persist(especialidad);
-    }
+	@Override
+	public List<Especialidad> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Especialidad.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Especialidad especialidad) {
-        em.merge(especialidad);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoEspecialidad) {
-    	Especialidad especialidad = em.find(Especialidad.class, codigoEspecialidad);
-        if (especialidad != null) {
-            em.remove(especialidad);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Especialidad read(Integer codigoEspecialidad) {
-        return em.find(Especialidad.class, codigoEspecialidad);
-    }
+	@Override
+	public Especialidad findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Especialidad)getHibernateTemplate().get(Especialidad.class, id);
+	}
 
 }

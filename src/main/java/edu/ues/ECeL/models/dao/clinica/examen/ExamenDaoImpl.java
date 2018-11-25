@@ -1,44 +1,37 @@
 package edu.ues.ECeL.models.dao.clinica.examen;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
+import edu.ues.ECeL.models.dao.clinica.cita.AgendaDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.examen.Examen;
 
 @Repository
-public class ExamenDaoImpl implements ExamenDao{
+public class ExamenDaoImpl extends GenericHibernateDaoImpl<Examen, Integer> implements ExamenDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
+	
+	@Autowired
+	public ExamenDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFactory en ExamenDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	@Override
+	public List<Examen> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Examen.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Examen examen) {
-        em.persist(examen);
-    }
-
-    @Override
-    @Transactional
-    public void update(Examen examen) {
-        em.merge(examen);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoExamen) {
-    	Examen examen = em.find(Examen.class, codigoExamen);
-        if (examen != null) {
-            em.remove(examen);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Examen read(Integer codigoExamen) {
-        return em.find(Examen.class, codigoExamen);
-    }
+	@Override
+	public Examen findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parámetro "+id.toString());
+		return (Examen)getHibernateTemplate().get(Examen.class, id);
+	}
 
 }

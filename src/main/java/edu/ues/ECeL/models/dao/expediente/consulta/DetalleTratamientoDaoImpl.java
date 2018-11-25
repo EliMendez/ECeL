@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.expediente.consulta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.consulta.DetalleTratamiento;
 
 @Repository
-public class DetalleTratamientoDaoImpl implements DetalleTratamientoDao{
+public class DetalleTratamientoDaoImpl extends GenericHibernateDaoImpl<DetalleTratamiento, Integer> implements DetalleTratamientoDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(DetalleTratamientoDaoImpl.class);
+	
+	@Autowired
+	public DetalleTratamientoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en DetalleTratamientoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(DetalleTratamiento detalleTratamiento) {
-        em.persist(detalleTratamiento);
-    }
+	@Override
+	public List<DetalleTratamiento> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(DetalleTratamiento.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(DetalleTratamiento detalleTratamiento) {
-        em.merge(detalleTratamiento);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoDetalleTratamiento) {
-    	DetalleTratamiento detalleTratamiento = em.find(DetalleTratamiento.class, codigoDetalleTratamiento);
-        if (detalleTratamiento != null) {
-            em.remove(detalleTratamiento);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public DetalleTratamiento read(Integer codigoDetalleTratamiento) {
-        return em.find(DetalleTratamiento.class, codigoDetalleTratamiento);
-    }
+	@Override
+	public DetalleTratamiento findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (DetalleTratamiento)getHibernateTemplate().get(DetalleTratamiento.class, id);
+	}
 
 }

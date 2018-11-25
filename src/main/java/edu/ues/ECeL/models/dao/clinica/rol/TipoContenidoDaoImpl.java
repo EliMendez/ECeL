@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.rol;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.rol.TipoContenido;
 
 @Repository
-public class TipoContenidoDaoImpl implements TipoContenidoDao{
+public class TipoContenidoDaoImpl extends GenericHibernateDaoImpl<TipoContenido, Integer> implements TipoContenidoDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(TipoContenidoDaoImpl.class);
+	
+	@Autowired
+	public TipoContenidoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en TipoContenidoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(TipoContenido tipoContenido) {
-        em.persist(tipoContenido);
-    }
+	@Override
+	public List<TipoContenido> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(TipoContenido.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(TipoContenido tipoContenido) {
-        em.merge(tipoContenido);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoContenido) {
-    	TipoContenido tipoContenido = em.find(TipoContenido.class, codigoContenido);
-        if (tipoContenido != null) {
-            em.remove(tipoContenido);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public TipoContenido read(Integer codigoContenido) {
-        return em.find(TipoContenido.class, codigoContenido);
-    }
-
+	@Override
+	public TipoContenido findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (TipoContenido)getHibernateTemplate().get(TipoContenido.class, id);
+	}
+	
 }

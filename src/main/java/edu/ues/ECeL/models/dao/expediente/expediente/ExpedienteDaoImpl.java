@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.expediente.expediente;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.expediente.Expediente;
 
 @Repository
-public class ExpedienteDaoImpl implements ExpedienteDao{
+public class ExpedienteDaoImpl extends GenericHibernateDaoImpl<Expediente, Integer> implements ExpedienteDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(ExpedienteDaoImpl.class);
+	
+	@Autowired
+	public ExpedienteDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en ExpedienteDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Expediente expediente) {
-        em.persist(expediente);
-    }
+	@Override
+	public List<Expediente> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Expediente.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Expediente expediente) {
-        em.merge(expediente);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoExpediente) {
-    	Expediente expediente = em.find(Expediente.class, codigoExpediente);
-        if (expediente != null) {
-            em.remove(expediente);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Expediente read(Integer codigoExpediente) {
-        return em.find(Expediente.class, codigoExpediente);
-    }
-
+	@Override
+	public Expediente findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Expediente)getHibernateTemplate().get(Expediente.class, id);
+	}
+	
 }

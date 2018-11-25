@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.expediente.consulta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.consulta.Incapacidad;
 
 @Repository
-public class IncapacidadDaoImpl implements IncapacidadDao{
+public class IncapacidadDaoImpl extends GenericHibernateDaoImpl<Incapacidad, Integer> implements IncapacidadDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(IncapacidadDaoImpl.class);
+	
+	@Autowired
+	public IncapacidadDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en IncapacidadDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Incapacidad incapacidad) {
-        em.persist(incapacidad);
-    }
+	@Override
+	public List<Incapacidad> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Incapacidad.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Incapacidad incapacidad) {
-        em.merge(incapacidad);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoIncapacidad) {
-    	Incapacidad incapacidad = em.find(Incapacidad.class, codigoIncapacidad);
-        if (incapacidad != null) {
-            em.remove(incapacidad);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Incapacidad read(Integer codigoIncapacidad) {
-        return em.find(Incapacidad.class, codigoIncapacidad);
-    }
+	@Override
+	public Incapacidad findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Incapacidad)getHibernateTemplate().get(Incapacidad.class, id);
+	}
 
 }

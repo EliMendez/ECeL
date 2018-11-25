@@ -1,44 +1,42 @@
 package edu.ues.ECeL.models.dao.clinica.personal;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.personal.Cargo;
 
 @Repository
-public class CargoDaoImpl implements CargoDao{
+public class CargoDaoImpl extends GenericHibernateDaoImpl<Cargo, Integer> implements CargoDao{
+	
+	private static final Logger logger = Logger.getLogger(CargoDaoImpl.class);
+	
+	@Autowired
+	public CargoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en CargoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @PersistenceContext
-    private EntityManager em;
+	@Override
+	public List<Cargo> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Cargo.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Cargo cargo) {
-        em.persist(cargo);
-    }
-
-    @Override
-    @Transactional
-    public void update(Cargo cargo) {
-        em.merge(cargo);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoCargo) {
-    	Cargo cargo = em.find(Cargo.class, codigoCargo);
-        if (cargo != null) {
-            em.remove(cargo);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Cargo read(Integer codigoCargo) {
-        return em.find(Cargo.class, codigoCargo);
-    }
-
+	@Override
+	public Cargo findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Cargo)getHibernateTemplate().get(Cargo.class, id);
+	}
+	
 }
 

@@ -1,44 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.rol;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.rol.AdminLog;
 
 @Repository
-public class AdminLogDaoImpl implements AdminLogDao{
+public class AdminLogDaoImpl extends GenericHibernateDaoImpl<AdminLog, Integer> implements AdminLogDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(AdminLogDaoImpl.class);
+	
+	@Autowired
+	public AdminLogDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en AdminLogDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(AdminLog adminLog) {
-        em.persist(adminLog);
-    }
+	@Override
+	public List<AdminLog> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(AdminLog.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(AdminLog adminLog) {
-        em.merge(adminLog);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoAdminLog) {
-    	AdminLog adminLog = em.find(AdminLog.class, codigoAdminLog);
-        if (adminLog != null) {
-            em.remove(adminLog);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public AdminLog read(Integer codigoAdminLog) {
-        return em.find(AdminLog.class, codigoAdminLog);
-    }
+	@Override
+	public AdminLog findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (AdminLog)getHibernateTemplate().get(AdminLog.class, id);
+	}
 
 }

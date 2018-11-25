@@ -1,44 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.cita;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.cita.Cita;
 
 
 @Repository
-public class CitaDaoImpl implements CitaDao{
+public class CitaDaoImpl extends GenericHibernateDaoImpl<Cita, Integer> implements CitaDao{
 
-    @PersistenceContext
-    private EntityManager em;
+	private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
+	
+	@Autowired
+	public CitaDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFactory en CitaDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	@Override
+	public List<Cita> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Cita.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Cita cita) {
-        em.persist(cita);
-    }
-
-    @Override
-    @Transactional
-    public void update(Cita cita) {
-        em.merge(cita);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoCita) {
-    	Cita cita = em.find(Cita.class, codigoCita);
-        if (cita != null) {
-            em.remove(cita);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Cita read(Integer codigoCita) {
-        return em.find(Cita.class, codigoCita);
-    }
+	@Override
+	public Cita findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parámetro "+id.toString());
+		return (Cita)getHibernateTemplate().get(Cita.class, id);
+	}
 
 }

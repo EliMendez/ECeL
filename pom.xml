@@ -15,6 +15,7 @@
 		<springframework.version>4.3.9.RELEASE</springframework.version>
 		<spring-security.version>4.2.9.RELEASE</spring-security.version>
 		<hibernate.version>5.2.10.Final</hibernate.version>
+		<log4j.version>1.2.16</log4j.version>
     </properties>
 
 <dependencies>
@@ -158,6 +159,12 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		
+		<dependency>
+   			<groupId>log4j</groupId>
+   			<artifactId>log4j</artifactId>
+   			<version>${log4j.version}</version>
+  		</dependency>
   		
 	</dependencies>
   

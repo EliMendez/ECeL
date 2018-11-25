@@ -1,43 +1,40 @@
 package edu.ues.ECeL.models.dao.expediente.expediente;
+import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
-import edu.ues.ECeL.models.entity.expediente.expediente.HistoriaClinica;
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
+import edu.ues.ECeL.models.entity.expediente.expediente.NotaEnfermeria;
 
 @Repository
-public class NotaEnfermeriaDaoImpl implements HistoriaClinicaDao{
+public class NotaEnfermeriaDaoImpl extends GenericHibernateDaoImpl<NotaEnfermeria, Integer> implements NotaEnfermeriaDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(NotaEnfermeriaDaoImpl.class);
+	
+	@Autowired
+	public NotaEnfermeriaDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en NotaEnfermeriaDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(HistoriaClinica historiaClinica) {
-        em.persist(historiaClinica);
-    }
+	@Override
+	public List<NotaEnfermeria> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(NotaEnfermeria.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(HistoriaClinica historiaClinica) {
-        em.merge(historiaClinica);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoHistoria) {
-    	HistoriaClinica historiaClinica = em.find(HistoriaClinica.class, codigoHistoria);
-        if (historiaClinica != null) {
-            em.remove(historiaClinica);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public HistoriaClinica read(Integer codigoHistoria) {
-        return em.find(HistoriaClinica.class, codigoHistoria);
-    }
-
+	@Override
+	public NotaEnfermeria findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (NotaEnfermeria)getHibernateTemplate().get(NotaEnfermeria.class, id);
+	}
+	
 }

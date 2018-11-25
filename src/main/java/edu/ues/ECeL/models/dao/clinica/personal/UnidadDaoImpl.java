@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.clinica.personal;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.personal.Unidad;
 
 @Repository
-public class UnidadDaoImpl implements UnidadDao{
+public class UnidadDaoImpl extends GenericHibernateDaoImpl<Unidad, Integer> implements UnidadDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(UnidadDaoImpl.class);
+	
+	@Autowired
+	public UnidadDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en UnidadDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Unidad unidad) {
-        em.persist(unidad);
-    }
+	@Override
+	public List<Unidad> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Unidad.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Unidad unidad) {
-        em.merge(unidad);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoUnidad) {
-    	Unidad unidad = em.find(Unidad.class, codigoUnidad);
-        if (unidad != null) {
-            em.remove(unidad);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Unidad read(Integer codigoUnidad) {
-        return em.find(Unidad.class, codigoUnidad);
-    }
+	@Override
+	public Unidad findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Unidad)getHibernateTemplate().get(Unidad.class, id);
+	}
 
 }

@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.expediente.consulta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.consulta.Tratamiento;
 
 @Repository
-public class TratamientoDaoImpl implements TratamientoDao{
+public class TratamientoDaoImpl extends GenericHibernateDaoImpl<Tratamiento, Integer> implements TratamientoDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(TratamientoDaoImpl.class);
+	
+	@Autowired
+	public TratamientoDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en TratamientoDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(Tratamiento tratamiento) {
-        em.persist(tratamiento);
-    }
+	@Override
+	public List<Tratamiento> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Tratamiento.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(Tratamiento tratamiento) {
-        em.merge(tratamiento);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoTratamiento) {
-    	Tratamiento tratamiento = em.find(Tratamiento.class, codigoTratamiento);
-        if (tratamiento != null) {
-            em.remove(tratamiento);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Tratamiento read(Integer codigoTratamiento) {
-        return em.find(Tratamiento.class, codigoTratamiento);
-    }
+	@Override
+	public Tratamiento findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (Tratamiento)getHibernateTemplate().get(Tratamiento.class, id);
+	}
 
 }

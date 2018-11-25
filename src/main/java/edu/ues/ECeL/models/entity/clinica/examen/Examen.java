@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
 import edu.ues.ECeL.models.entity.expediente.consulta.Clasificacion;
-import edu.ues.ECeL.models.entity.expediente.consulta.DetalleChequeFisico;
+import edu.ues.ECeL.models.entity.expediente.consulta.DetalleChequeoFisico;
 
 @Entity
 @Table(name="EXAMEN")
@@ -42,7 +42,7 @@ public class Examen implements Serializable {
 	private List<DetalleOrdenExamenes> detalleOrdenExamenes;
 	
 	@OneToMany(mappedBy = "examen",cascade= CascadeType.ALL)
-	private List<DetalleChequeFisico> detalleChequeFisico;
+	private List<DetalleChequeoFisico> detalleChequeFisico;
 	
 	@NotNull
 	@NotBlank
@@ -96,11 +96,11 @@ public class Examen implements Serializable {
 		this.detalleOrdenExamenes = detalleOrdenExamenes;
 	}
 
-	public List<DetalleChequeFisico> getDetalleChequeFisico() {
+	public List<DetalleChequeoFisico> getDetalleChequeFisico() {
 		return detalleChequeFisico;
 	}
 
-	public void setDetalleChequeFisico(List<DetalleChequeFisico> detalleChequeFisico) {
+	public void setDetalleChequeFisico(List<DetalleChequeoFisico> detalleChequeFisico) {
 		this.detalleChequeFisico = detalleChequeFisico;
 	}
 

@@ -1,43 +1,37 @@
 package edu.ues.ECeL.models.dao.clinica.inventario;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
+import edu.ues.ECeL.models.dao.clinica.cita.AgendaDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.inventario.Fabricante;
 
 @Repository
-public class FabricanteDaoImpl implements FabricanteDao{
+public class FabricanteDaoImpl extends GenericHibernateDaoImpl<Fabricante, Integer> implements FabricanteDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
+	
+	@Autowired
+	public FabricanteDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFactory en FabricanteDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	@Override
+	public List<Fabricante> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(Fabricante.class);
+	}
 
-    @Override
-    @Transactional
-    public void insert(Fabricante fabricante) {
-        em.persist(fabricante);
-    }
-
-    @Override
-    @Transactional
-    public void update(Fabricante fabricante) {
-        em.merge(fabricante);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoFabricante) {
-    	Fabricante fabricante = em.find(Fabricante.class, codigoFabricante);
-        if (fabricante != null) {
-            em.remove(fabricante);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Fabricante read(Integer codigoFabricante) {
-        return em.find(Fabricante.class, codigoFabricante);
-    }
+	@Override
+	public Fabricante findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parámetro "+id.toString());
+		return (Fabricante)getHibernateTemplate().get(Fabricante.class, id);
+	}
 
 }

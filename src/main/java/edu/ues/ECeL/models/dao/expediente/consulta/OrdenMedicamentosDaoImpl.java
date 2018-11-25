@@ -1,43 +1,41 @@
 package edu.ues.ECeL.models.dao.expediente.consulta;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
 
+import org.apache.log4j.Logger;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.consulta.OrdenMedicamentos;
 
 @Repository
-public class OrdenMedicamentosDaoImpl implements OrdenMedicamentosDao{
+public class OrdenMedicamentosDaoImpl extends GenericHibernateDaoImpl<OrdenMedicamentos, Integer> implements OrdenMedicamentosDao{
 
-    @PersistenceContext
-    private EntityManager em;
+private static final Logger logger = Logger.getLogger(OrdenMedicamentosDaoImpl.class);
+	
+	@Autowired
+	public OrdenMedicamentosDaoImpl(SessionFactory sessionFactory) {
+		logger.info("IoC SessionFActory en OrdenMedicamentosDaoImpl");
+		super.setSessionFactory(sessionFactory);
+	}
+	
+	/*@Override
+	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
+		return getHibernateTemplate().
+	}*/
 
-    @Override
-    @Transactional
-    public void insert(OrdenMedicamentos ordenMedicamentos) {
-        em.persist(ordenMedicamentos);
-    }
+	@Override
+	public List<OrdenMedicamentos> findAll() throws Exception {
+		logger.info("Llamada al método findAll");
+		return getHibernateTemplate().loadAll(OrdenMedicamentos.class);
+	}
 
-    @Override
-    @Transactional
-    public void update(OrdenMedicamentos ordenMedicamentos) {
-        em.merge(ordenMedicamentos);
-    }
-
-    @Override
-    @Transactional
-    public void delete(Integer codigoOrdenMedicamentos) {
-    	OrdenMedicamentos ordenMedicamentos = em.find(OrdenMedicamentos.class, codigoOrdenMedicamentos);
-        if (ordenMedicamentos != null) {
-            em.remove(ordenMedicamentos);
-        }
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public OrdenMedicamentos read(Integer codigoOrdenMedicamentos) {
-        return em.find(OrdenMedicamentos.class, codigoOrdenMedicamentos);
-    }
+	@Override
+	public OrdenMedicamentos findById(Integer id) throws Exception {
+		logger.info("Llamada al método findById con el parametro "+id.toString());
+		return (OrdenMedicamentos)getHibernateTemplate().get(OrdenMedicamentos.class, id);
+	}
 
 }

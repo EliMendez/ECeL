@@ -70,7 +70,7 @@ public class Consulta implements Serializable{
 	private Incapacidad incapacidad;
 
 	@OneToMany(mappedBy = "consulta")
-	private List<DetalleChequeFisico> detalleChequeoFisico;
+	private List<DetalleChequeoFisico> detalleChequeoFisico;
 
 	@NotNull
 	@NotBlank
@@ -155,11 +155,11 @@ public class Consulta implements Serializable{
 		this.incapacidad = incapacidad;
 	}
 
-	public List<DetalleChequeFisico> getDetalleChequeoFisico() {
+	public List<DetalleChequeoFisico> getDetalleChequeoFisico() {
 		return detalleChequeoFisico;
 	}
 
-	public void setDetalleChequeoFisico(List<DetalleChequeFisico> detalleChequeoFisico) {
+	public void setDetalleChequeoFisico(List<DetalleChequeoFisico> detalleChequeoFisico) {
 		this.detalleChequeoFisico = detalleChequeoFisico;
 	}
 
