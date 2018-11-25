@@ -40,7 +40,6 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Admin/Downloads/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/aleja/Downloads/spring-context-4.3.9.RELEASE.jar"/>
 	<classpathentry kind="src" path="target/generated-sources/annotations">
 		<attributes>
@@ -50,6 +49,7 @@
 			<attribute name="m2e-apt" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/aleja/Downloads/ojdbc6.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>

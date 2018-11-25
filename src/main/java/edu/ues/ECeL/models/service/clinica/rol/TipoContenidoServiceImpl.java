@@ -38,7 +38,7 @@ public class TipoContenidoServiceImpl extends GenericObjectServiceImpl<TipoConte
 	public void saveTipoContenidoAdd(TipoContenido obj) { 
 		try {
 			Integer result = tipoContenidoDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoTipoContenido());
+			System.out.println("id grabado " + obj.getCodigoContenido());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

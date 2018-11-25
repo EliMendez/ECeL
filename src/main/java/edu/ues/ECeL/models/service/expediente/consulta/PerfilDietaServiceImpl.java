@@ -38,7 +38,7 @@ public class PerfilDietaServiceImpl extends GenericObjectServiceImpl<PerfilDieta
 	public void savePerfilDietaAdd(PerfilDieta obj) { 
 		try {
 			Integer result = perfilDietaDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoPerfilDieta());
+			System.out.println("id grabado " + obj.getCodigoDieta());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

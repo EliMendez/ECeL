@@ -2,7 +2,7 @@ package edu.ues.ECeL.configuration.application;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
+public class WebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
 	
 	@Override
     protected Class<?>[] getRootConfigClasses() {

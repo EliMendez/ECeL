@@ -38,7 +38,7 @@ public class TranscripcionExamenServiceImpl extends GenericObjectServiceImpl<Tra
 	public void saveTranscripcionExamenAdd(TranscripcionExamen obj) { 
 		try {
 			Integer result = transcripcionExamenDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoTranscripcionExamen());
+			System.out.println("id grabado " + obj.getCodigoTranscripcion());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -38,7 +38,7 @@ public class LoteMedicamentoServiceImpl extends GenericObjectServiceImpl<LoteMed
 	public void saveLoteMedicamentoAdd(LoteMedicamento obj) { 
 		try {
 			Integer result = loteMedicamentoDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoLoteMedicamento());
+			System.out.println("id grabado " + obj.getNumeroLote());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

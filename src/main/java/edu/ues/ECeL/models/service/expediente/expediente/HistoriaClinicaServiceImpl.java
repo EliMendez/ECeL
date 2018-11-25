@@ -38,7 +38,7 @@ public class HistoriaClinicaServiceImpl extends GenericObjectServiceImpl<Histori
 	public void saveHistoriaClinicaAdd(HistoriaClinica obj) { 
 		try {
 			Integer result = historiaDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoHistoriaClinica());
+			System.out.println("id grabado " + obj.getCodigoHistoria());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

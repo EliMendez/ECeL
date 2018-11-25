@@ -1,13 +1,13 @@
 package edu.ues.ECeL.models.test.clinica.cita;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import edu.ues.ECeL.models.dao.clinica.cita.AgendaDao;
 import edu.ues.ECeL.models.entity.clinica.cita.Agenda;
 
+@RunWith(SpringJUnit4ClassRunner)
 class AgendaDaoTest {
 	
 	final Logger logger = LoggerFactory.getLogger(AgendaDaoTest.class);
@@ -34,12 +34,19 @@ class AgendaDaoTest {
 
 	@Test
 	void testFindByQuery() {
-		fail("Not yet implemented");
+		List<Agenda> agendas = null;
+		println("testFindByQuery");
+		try {
+			agenda = agendaDao.findByQuery("from Agenda codigo");
+		}
 	}
 
 	@Test
 	void testFindAll() {
-		fail("Not yet implemented");
+		List<Agenda> agendas = agendaDao.findAll();
+		println("testFindAll");
+		assertNotNull("Las lista de Agendas es null", agendas);
+		imprimirListado(agendas);
 	}
 
 	@Test

@@ -38,7 +38,7 @@ public class DetalleOrdenExamenesServiceImpl extends GenericObjectServiceImpl<De
 	public void saveDetalleOrdenExamenesAdd(DetalleOrdenExamenes obj) { 
 		try {
 			Integer result = detalleOrdenDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoDetalleOrdenExamenes());
+			System.out.println("id grabado " + obj.getCodigoDetalleExamen());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

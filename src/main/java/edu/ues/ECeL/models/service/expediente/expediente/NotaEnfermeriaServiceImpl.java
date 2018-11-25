@@ -38,7 +38,7 @@ public class NotaEnfermeriaServiceImpl extends GenericObjectServiceImpl<NotaEnfe
 	public void saveNotaEnfermeriaAdd(NotaEnfermeria obj) { 
 		try {
 			Integer result = notaEnfermeriaDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoNotaEnfermeria());
+			System.out.println("id grabado " + obj.getCodigoNota());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

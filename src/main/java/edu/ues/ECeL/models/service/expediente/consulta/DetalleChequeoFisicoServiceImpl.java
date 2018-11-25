@@ -38,7 +38,7 @@ public class DetalleChequeoFisicoServiceImpl extends GenericObjectServiceImpl<De
 	public void saveDetalleChequeoFisicoAdd(DetalleChequeoFisico obj) { 
 		try {
 			Integer result = detalleChequeoFisicoDao.save(obj);
-			System.out.println("id grabado " + obj.getCodigoDetalleChequeoFisico());
+			System.out.println("id grabado " + obj.getCodigoChequeo());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

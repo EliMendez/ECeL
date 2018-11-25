@@ -3,7 +3,6 @@ package edu.ues.ECeL.generic;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 import org.hibernate.criterion.DetachedCriteria;
 
