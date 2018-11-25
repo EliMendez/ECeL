@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.expediente.consulta.Incapacidad;
 
 public interface IncapacidadDao extends GenericHibernateDao<Incapacidad, Integer> {
-	
+	public Incapacidad getIncapacidadDetails(Integer id);
 }

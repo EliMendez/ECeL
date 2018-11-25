@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(EnfermedadDaoImpl.class);
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public Enfermedad getEnfermedadDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Enfermedad)getHibernateTemplate().get(Enfermedad.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

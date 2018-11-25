@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.expediente.consulta.Clasificacion;
 
 public interface ClasificacionDao extends GenericHibernateDao<Clasificacion, Integer>{
-	
+	public Clasificacion getClasificacionDetails(Integer id);
 }

@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.expediente.consulta.DetalleOrdenReferencia;
 
 public interface DetalleOrdenReferenciaDao extends GenericHibernateDao<DetalleOrdenReferencia, Integer> {
-	
+	public DetalleOrdenReferencia getDetalleOrdenReferenciaDetails(Integer id);
 }

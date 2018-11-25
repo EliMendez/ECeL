@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.clinica.personal.Especialidad;
 
 public interface EspecialidadDao extends GenericHibernateDao<Especialidad, Integer> {
-	
+	public Especialidad getEspecialidadDetails(Integer id);
 }

@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.expediente.consulta.PerfilDieta;
 
 public interface PerfilDietaDao extends GenericHibernateDao<PerfilDieta, Integer>{
-	
+	public PerfilDieta getPerfilDietaDetails(Integer id);
 }

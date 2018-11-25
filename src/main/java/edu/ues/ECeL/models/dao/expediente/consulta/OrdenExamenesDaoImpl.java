@@ -21,6 +21,12 @@ public class OrdenExamenesDaoImpl extends GenericHibernateDaoImpl<OrdenExamenes,
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public OrdenExamenes getOrdenExamenesDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (OrdenExamenes)getHibernateTemplate().get(OrdenExamenes.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

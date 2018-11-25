@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(OrdenReferenciasDaoImpl.cl
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public OrdenReferencias getOrdenReferenciasDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (OrdenReferencias)getHibernateTemplate().get(OrdenReferencias.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

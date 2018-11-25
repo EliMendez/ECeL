@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(SignosVitalesDaoImpl.class
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public SignosVitales getSignosVitalesDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (SignosVitales)getHibernateTemplate().get(SignosVitales.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

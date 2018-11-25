@@ -21,6 +21,12 @@ public class DetalleChequeoFisicoDaoImpl extends	GenericHibernateDaoImpl<Detalle
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public DetalleChequeoFisico getDetalleChequeoFisicoDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (DetalleChequeoFisico)getHibernateTemplate().get(DetalleChequeoFisico.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

@@ -22,6 +22,12 @@ private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public LoteMedicamento getLoteMedicamentoDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (LoteMedicamento)getHibernateTemplate().get(LoteMedicamento.class, id);
+		  
+	}
+	
 	@Override
 	public List<LoteMedicamento> findAll() throws Exception {
 		logger.info("Llamada al método findAll");

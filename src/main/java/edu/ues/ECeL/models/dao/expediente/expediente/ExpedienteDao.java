@@ -4,5 +4,5 @@ import edu.ues.ECeL.generic.GenericHibernateDao;
 import edu.ues.ECeL.models.entity.expediente.expediente.Expediente;
 
 public interface ExpedienteDao extends GenericHibernateDao<Expediente, Integer>{
-	
+	public Expediente getExpedienteDetails(Integer id);
 }

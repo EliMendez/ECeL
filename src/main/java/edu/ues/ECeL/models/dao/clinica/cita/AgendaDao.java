@@ -5,4 +5,6 @@ import edu.ues.ECeL.models.entity.clinica.cita.Agenda;
 
 public interface AgendaDao extends GenericHibernateDao<Agenda, Integer> {
 	
+	public Agenda getAgendaDetails(Integer id);
+	
 }

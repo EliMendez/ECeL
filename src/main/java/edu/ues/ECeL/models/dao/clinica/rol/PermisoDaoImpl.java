@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(PermisoDaoImpl.class);
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public Permiso getPermisoDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Permiso)getHibernateTemplate().get(Permiso.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

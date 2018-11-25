@@ -1,16 +1,11 @@
 package edu.ues.ECeL.models.dao.clinica.cita;
 
 import java.util.List;
-import java.util.Map;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.cita.Agenda;
@@ -31,6 +26,12 @@ public class AgendaDaoImpl extends GenericHibernateDaoImpl<Agenda, Integer> impl
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().
 	}*/
+	
+	public Agenda getAgendaDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Agenda)getHibernateTemplate().get(Agenda.class, id);
+		  
+	}
 
 	@Override
 	public List<Agenda> findAll() throws Exception {

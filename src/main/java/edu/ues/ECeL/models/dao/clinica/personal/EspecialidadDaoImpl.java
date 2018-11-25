@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(EspecialidadDaoImpl.class)
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public Especialidad getEspecialidadDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Especialidad)getHibernateTemplate().get(Especialidad.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

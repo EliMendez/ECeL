@@ -12,8 +12,8 @@ import org.hibernate.criterion.DetachedCriteria;
 public abstract class GenericHibernateDaoImpl<T extends Serializable, E>  extends HibernateDaoSupport implements GenericHibernateDao<T, E>{
 
 	private static final Logger logger = Logger.getLogger(GenericHibernateDaoImpl.class);
-	 
-	 public void deleteAll(Collection<T> instances) throws Exception {
+	
+	public void deleteAll(Collection<T> instances) throws Exception {
 	  try {
 	   logger.info("Ejecutando metodo deleteAll");
 	            getHibernateTemplate().deleteAll(instances);

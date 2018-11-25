@@ -5,4 +5,6 @@ import edu.ues.ECeL.models.entity.clinica.cita.Estado;
 
 public interface EstadoDao extends GenericHibernateDao<Estado, Integer>{
 	
+	public Estado getEstadoDetails(Integer id);
+	
 }

@@ -21,6 +21,12 @@ public class ConsultaDaoImpl extends GenericHibernateDaoImpl<Consulta, Integer> 
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public Consulta getConsultaDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Consulta)getHibernateTemplate().get(Consulta.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

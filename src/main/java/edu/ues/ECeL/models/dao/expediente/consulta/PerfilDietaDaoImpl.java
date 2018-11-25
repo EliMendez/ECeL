@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(PerfilDietaDaoImpl.class);
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public PerfilDieta getPerfilDietaDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (PerfilDieta)getHibernateTemplate().get(PerfilDieta.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

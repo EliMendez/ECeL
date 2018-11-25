@@ -25,6 +25,12 @@ private static final Logger logger = Logger.getLogger(ClinicaDaoImpl.class);
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().
 	}*/
+	
+	public Clinica getClinicaDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Clinica)getHibernateTemplate().get(Clinica.class, id);
+		  
+	}
 
 	@Override
 	public List<Clinica> findAll() throws Exception {

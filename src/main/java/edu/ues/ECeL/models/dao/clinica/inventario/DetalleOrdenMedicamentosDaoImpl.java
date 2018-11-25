@@ -8,18 +8,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
-import edu.ues.ECeL.models.dao.clinica.cita.AgendaDaoImpl;
 import edu.ues.ECeL.models.entity.clinica.inventario.DetalleOrdenMedicamentos;
 
 @Repository
 public class DetalleOrdenMedicamentosDaoImpl extends GenericHibernateDaoImpl<DetalleOrdenMedicamentos, Integer> implements DetalleOrdenMedicamentosDao{
 
-private static final Logger logger = Logger.getLogger(AgendaDaoImpl.class);
+private static final Logger logger = Logger.getLogger(DetalleOrdenMedicamentosDaoImpl.class);
 	
 	@Autowired
 	public DetalleOrdenMedicamentosDaoImpl(SessionFactory sessionFactory) {
 		logger.info("IoC SessionFactory en DetalleOrdenMedicamentosDaoImpl");
 		super.setSessionFactory(sessionFactory);
+	}
+	
+	public DetalleOrdenMedicamentos getDetalleOrdenMedicamentosDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (DetalleOrdenMedicamentos)getHibernateTemplate().get(DetalleOrdenMedicamentos.class, id);
+		  
 	}
 	
 	@Override

@@ -7,10 +7,11 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.ues.ECeL.generic.GenericHibernateDaoImpl;
 import edu.ues.ECeL.models.entity.expediente.expediente.HistoriaClinica;
 
 @Repository
-public class HistoriaClinicaDaoImpl implements HistoriaClinicaDao{
+public class HistoriaClinicaDaoImpl extends GenericHibernateDaoImpl<HistoriaClinica, Integer> implements HistoriaClinicaDao{
 
 private static final Logger logger = Logger.getLogger(HistoriaClinicaDaoImpl.class);
 	
@@ -18,6 +19,12 @@ private static final Logger logger = Logger.getLogger(HistoriaClinicaDaoImpl.cla
 	public HistoriaClinicaDaoImpl(SessionFactory sessionFactory) {
 		logger.info("IoC SessionFActory en HistoriaClinicaDaoImpl");
 		super.setSessionFactory(sessionFactory);
+	}
+	
+	public HistoriaClinica getHistoriaClinicaDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (HistoriaClinica)getHibernateTemplate().get(HistoriaClinica.class, id);
+		  
 	}
 	
 	/*@Override

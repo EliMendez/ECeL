@@ -21,6 +21,12 @@ private static final Logger logger = Logger.getLogger(AdminLogDaoImpl.class);
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public AdminLog getAdminLogDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (AdminLog)getHibernateTemplate().get(AdminLog.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

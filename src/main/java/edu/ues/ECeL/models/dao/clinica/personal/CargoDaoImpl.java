@@ -21,6 +21,12 @@ public class CargoDaoImpl extends GenericHibernateDaoImpl<Cargo, Integer> implem
 		super.setSessionFactory(sessionFactory);
 	}
 	
+	public Cargo getCargoDetails(Integer id) {
+		logger.info("Llamando al metodo getAccountDetails con parametro accountNumber " + id.toString());
+		return (Cargo)getHibernateTemplate().get(Cargo.class, id);
+		  
+	}
+	
 	/*@Override
 	public List<Map<String, Object>> findMapByQuery(String queryString) throws Exception {
 		return getHibernateTemplate().

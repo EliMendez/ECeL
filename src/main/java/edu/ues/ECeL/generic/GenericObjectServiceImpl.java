@@ -6,13 +6,13 @@ import java.util.List;
 public abstract class GenericObjectServiceImpl<T extends Serializable, E> implements GenericObjectService<T, E>{
 
 	@Override
-	public void DeleteObject(Integer id) throws Exception {
+	public void deleteObject(Integer id) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Object> ObjectFinAll() {
+	public List<Object> objectFinAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -24,13 +24,13 @@ public abstract class GenericObjectServiceImpl<T extends Serializable, E> implem
 	}
 
 	@Override
-	public void SaveObjectAdd(Object obj) {
+	public void saveObjectAdd(Object obj) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void UpdateObject(Object obj) {
+	public void updateObject(Object obj) {
 		// TODO Auto-generated method stub
 		
 	}
